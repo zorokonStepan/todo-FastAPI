@@ -1,0 +1,4 @@
+uvicorn api:app --port 8000 --reload
+
+curl -X "GET" "http://127.0.0.1:8000/todo" -H "accept: application/json"
+
