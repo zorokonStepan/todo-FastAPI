@@ -1,6 +1,9 @@
 # run server
 uvicorn api:app --port 8000 --reload
 
+# Swagger
+http://127.0.0.1:8000/docs
+
 # GET
 curl -X "GET" "http://127.0.0.1:8000/todo" -H "accept: application/json"
 curl 127.0.0.1:8000/todo
@@ -11,6 +14,6 @@ curl -X "POST" "http://127.0.0.1:8000/todo" -H "accept: application/json" -H "Co
 
 curl -X POST -H "Content-Type:application/json" -d "{\"id\": 1, \"item\": \"Validation\"}" 127.0.0.1:8000/todo
 
-curl -X POST -H "Content-Type:application/json" -d "{\"id\":4,\"item\":{\"item\":\"Nested models\",\"status\":\"completed\"}}" 127.0.0.1:8000/todo
+curl -X POST -H "Content-Type:application/json" -d "{\"id\":1,\"item\":{\"item\":\"Nested models\",\"status\":\"completed\"}}" 127.0.0.1:8000/todo
 
 
