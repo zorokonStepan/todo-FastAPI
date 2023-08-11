@@ -11,8 +11,8 @@ class Todo(BaseModel):
     item: Item
 
     class Config:
-        Schema_extra = {
-            "Example": {
+        json_schema_extra = {
+            "example": {
                 "id": 1,
                 "item": {
                     "item": "Example schema!",
@@ -22,3 +22,15 @@ class Todo(BaseModel):
         }
 
 
+class TodoItem(BaseModel):
+    item: Item
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "item": {
+                    "item": "Read the next chapter of the book",
+                    "status": "successfully"
+                }
+            }
+        }
