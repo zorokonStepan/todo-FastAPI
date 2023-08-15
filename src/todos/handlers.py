@@ -1,42 +1,9 @@
 from fastapi import APIRouter, Path
 
-from src.models import Todo, TodoItem
-
+from src.todos.data import todo_list
+from src.todos.models import TodoItem, Todo
 
 todo_router = APIRouter()
-
-
-# todo_list = []
-todo_list = [
-    {
-        "id": 0,
-        "item": {
-            "item": "Example schema 0!",
-            "status": "successfully",
-        }
-    },
-    {
-        "id": 1,
-        "item": {
-            "item": "Example schema 1!",
-            "status": "successfully",
-        }
-    },
-    {
-        "id": 2,
-        "item": {
-            "item": "Example schema 2!",
-            "status": "successfully",
-        }
-    },
-    {
-        "id": 3,
-        "item": {
-            "item": "Example schema 3!",
-            "status": "successfully",
-        }
-    },
-]
 
 
 @todo_router.post("/todo")

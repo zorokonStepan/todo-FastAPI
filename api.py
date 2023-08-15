@@ -1,13 +1,9 @@
 from fastapi import FastAPI
 
-from src.todo import todo_router
-
+from src.main.handlers import main_router
+from src.todos.handlers import todo_router
 
 app = FastAPI()
 
-
-@app.get("/")
-async def welcome() -> dict:
-    return {"message": "Hello!"}
-
+app.include_router(main_router)
 app.include_router(todo_router)
