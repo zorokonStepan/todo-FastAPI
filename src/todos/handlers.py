@@ -12,22 +12,15 @@ async def add_todo(todo: Todo) -> dict:
     return {"message": "Todo added successfully"}
 
 
-@todo_router.get("/todos", response_model=TodoItems)
-async def retrieve_todo() -> dict:
-    return {
-        "todos": todo_list
-    }
-
-
 @todo_router.get("/todo")
 async def retrieve_todos() -> dict:
-    return {"src": todo_list}
+    return {"todo": todo_list}
 
 
 @todo_router.get("/todo/{todo_id}")
 async def get_single_todo(todo_id: int = Path(..., title="The ID of the todo to retrieve.")) -> dict:
     for todo in todo_list:
-        if todo.id == todo_id:
+        if todo["id"] == todo_id:
             return {"todo": todo}
     return {"message": "Todo with supplied ID doesn't exist."}
 
@@ -35,7 +28,14 @@ async def get_single_todo(todo_id: int = Path(..., title="The ID of the todo to 
 @todo_router.put("/todo/{todo_id}")
 async def update_todo(todo_data: TodoItem, todo_id: int = Path(..., title="The ID of the todo to be updated")) -> dict:
     for todo in todo_list:
-        if todo.id == todo_id:
-            todo.item = todo_data.item
+        if todo["id"] == todo_id:
+            todo["item"] = todo_data.item
             return {"message": "Todo updated successfully."}
     return {"message": "Todo with supplied ID doesn't exist."}
+
+
+@todo_router.get("/todos", response_model=TodoItems)
+async def retrieve_todo() -> dict:
+    return {
+        "todos": todo_list
+    }
