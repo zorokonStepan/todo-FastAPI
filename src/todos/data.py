@@ -3,30 +3,18 @@
 todo_list = [
     {
         "id": 0,
-        "item": {
-            "item": "Example schema 0!",
-            "status": "successfully",
-        }
+        "item": "Example item 0",
     },
     {
         "id": 1,
-        "item": {
-            "item": "Example schema 1!",
-            "status": "successfully",
-        }
+        "item": "Example item 1",
     },
     {
         "id": 2,
-        "item": {
-            "item": "Example schema 2!",
-            "status": "successfully",
-        }
+        "item": "Example item 2",
     },
     {
         "id": 3,
-        "item": {
-            "item": "Example schema 3!",
-            "status": "successfully",
-        }
+        "item": "Example item 3",
     },
 ]
